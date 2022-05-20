@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import { useSelector, useDispatch } from "react-redux";
 
-import { change } from "../../redux/contacts-actions";
+import { changeFilter } from "../../redux/contacts-actions";
 import s from "./Filter.module.css";
 
 const filterInputId = nanoid();
@@ -11,7 +11,7 @@ const Filter = () => {
 const filter = useSelector(state => state.filter);
 const dispatch = useDispatch();
 
-const changeFilter = (event) => dispatch(change(event.currentTarget.value));
+const getFiltredContacts = (event) => dispatch(changeFilter(event.currentTarget.value));
 
     return (
         <div className={s.filter}>
@@ -19,7 +19,7 @@ const changeFilter = (event) => dispatch(change(event.currentTarget.value));
             <input className={s.input} type="text"
                 id={filterInputId}
                 value={filter}
-                onChange={changeFilter}
+                onChange={getFiltredContacts}
             />
         </div>
 

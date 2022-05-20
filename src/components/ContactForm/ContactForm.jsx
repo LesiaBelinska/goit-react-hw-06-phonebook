@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
 
-import {add} from "../../redux/contacts-actions.js";
+import {addContact} from "../../redux/contacts-actions.js";
 import s from "./ContactForm.module.css";
 
 const schema = yup.object().shape({
@@ -39,7 +39,7 @@ const dispatch = useDispatch();
       return;
     };
 
-    dispatch(add(newContact))
+    dispatch(addContact(newContact))
   };
 
 
