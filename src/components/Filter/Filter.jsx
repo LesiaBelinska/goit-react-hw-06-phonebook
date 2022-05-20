@@ -1,5 +1,4 @@
 import { nanoid } from "nanoid";
-//import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from "react-redux";
 
 import { change } from "../../redux/contacts-actions";
@@ -28,8 +27,3 @@ const changeFilter = (event) => dispatch(change(event.currentTarget.value));
 };
 
 export default Filter;
-
-// Filter.propTypes = {
-//     value: PropTypes.string.isRequired,
-//     onChange: PropTypes.func.isRequired
-// }
