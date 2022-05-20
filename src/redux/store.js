@@ -21,7 +21,7 @@ const contactsPersistConfig = {
 
 export const persistedContactsReducer = persistReducer(
     contactsPersistConfig,
-    contactsReducer
+    contactsReducer,
 );
 
 

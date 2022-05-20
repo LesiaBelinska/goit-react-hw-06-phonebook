@@ -7,7 +7,7 @@ export const contactsReducer = createReducer([], {
         return [...state, action.payload]
     },
     [deleteContact]: (state, action) => {
-        return [...state, action.payload]
+        return state.filter(contact => contact.id !== action.payload);
     },
 });
 
