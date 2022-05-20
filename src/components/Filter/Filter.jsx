@@ -11,7 +11,7 @@ const Filter = () => {
 const filter = useSelector(state => state.filter);
 const dispatch = useDispatch();
 
-const getFiltredContacts = (event) => dispatch(changeFilter(event.currentTarget.value));
+const onChangeFilter = (event) => dispatch(changeFilter(event.currentTarget.value));
 
     return (
         <div className={s.filter}>
@@ -19,7 +19,7 @@ const getFiltredContacts = (event) => dispatch(changeFilter(event.currentTarget.
             <input className={s.input} type="text"
                 id={filterInputId}
                 value={filter}
-                onChange={getFiltredContacts}
+                onChange={onChangeFilter}
             />
         </div>
 

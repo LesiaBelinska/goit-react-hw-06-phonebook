@@ -19,7 +19,7 @@ const contactsPersistConfig = {
     blacklist:['filter'], //blacklist - зберігати окрім такого поля, whitelist - зберігати тільки такі поля
 }
 
-export const persistedContactsReducer = persistReducer(
+export const persistedReducer = persistReducer(
     contactsPersistConfig,
     contactsReducer,
 );
@@ -27,16 +27,16 @@ export const persistedContactsReducer = persistReducer(
 
 export const store = configureStore({
     reducer: {
-        contacts: persistedContactsReducer,
+        contacts: persistedReducer,
         filter: filterReducer,
     },
-    middleware (getDefaultMiddleware) {
-            return getDefaultMiddleware({
-                serializableCheck: {
-                    ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST,
-                        PURGE, REGISTER],
-                },
-            });
+    middleware(getDefaultMiddleware) {
+        return getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST,
+                    PURGE, REGISTER],
+            },
+        });
         }
     // прослойка, для виводу у консоль
     // middleware: getDefaultMiddleware =>
@@ -45,3 +45,37 @@ export const store = configureStore({
 
 
 export const persistor = persistStore(store);
+
+
+
+//For contactsSlice
+
+// import { configureStore } from "@reduxjs/toolkit";
+// import {
+//   persistStore,
+//   FLUSH,
+//   REHYDRATE,
+//   PAUSE,
+//   PERSIST,
+//   PURGE,
+//   REGISTER,
+// } from 'redux-persist';
+
+// import { contactsReducer, filterSlice } from "./contactsSlice.js";
+
+
+// export const store = configureStore({
+//     reducer: {
+//         contacts: contactsReducer, 
+//         filter: filterSlice,
+//     },
+//     middleware(getDefaultMiddleware) {
+//         return getDefaultMiddleware({
+//             serializableCheck: {
+//                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//             },
+//         });
+//     },
+// });
+
+// export const persistor = persistStore(store);
