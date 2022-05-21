@@ -8,9 +8,8 @@ const ContactList = () => {
     const contacts = useSelector(state => state.contacts);
     const filter = useSelector(state => state.filter);
     const dispatch = useDispatch();
-    const filteredContacts = contacts.filter(contact =>
+    const filteredContacts = contacts?.filter(contact =>
         contact.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase()));
-    
 
     return (
         <ul>
