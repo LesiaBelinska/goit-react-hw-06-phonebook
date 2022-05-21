@@ -4,13 +4,16 @@
 
 // const contactsSlice = createSlice({
 //     name: 'contacts',
-//     initialState: { contacts: [] },
+//     initialState: { contacts: [], filter: '' },
 //     reducers: {
 //         addContact(state, action) {
 //             return [...state, action.payload];
 //         },
 //         deleteContact(state, action) {
 //             return state.filter(contact => contact.id !== action.payload);
+//         },
+//         changeFilter(_, action) {
+//             return action.payload;
 //         },
 //     },
 // });
@@ -26,16 +29,4 @@
 //     contactsSlice.reducer,
 // )
 
-// export const { addContact, deleteContact } = contactsSlice.actions;
-
-// export const filterSlice = createSlice({
-//     name: 'filter',
-//     initialState: { filter: '' },
-//     reducers: {
-//         changeFilter(_, action) {
-//             return action.payload;
-//         },
-//     },
-// });
-
-// export const { changeFilter } = filterSlice.actions;
+// export const { addContact, deleteContact, changeFilter } = contactsSlice.actions;
