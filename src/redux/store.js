@@ -59,13 +59,12 @@ export const persistor = persistStore(store);
 //   REGISTER,
 // } from 'redux-persist';
 
-// import { contactsReducer, filterSlice } from "./contactsSlice.js";
+// import { contactsReducer } from "./contactsSlice.js";
 
 
 // export const store = configureStore({
 //     reducer: {
 //         contacts: contactsReducer, 
-//         filter: filterSlice,
 //     },
 //     middleware(getDefaultMiddleware) {
 //         return getDefaultMiddleware({
