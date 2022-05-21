@@ -16,8 +16,8 @@ import contactsReducer from "./contacts-reducer";
 const contactsPersistConfig = {
     key: 'contacts',
     storage,
-    blacklist:['filter'], //blacklist - зберігати окрім такого поля, whitelist - зберігати тільки такі поля
-}
+    blacklist: ['filter'], //blacklist - зберігати окрім такого поля, whitelist - зберігати тільки такі поля
+};
 
 export const persistedReducer = persistReducer(
     contactsPersistConfig,
@@ -31,16 +31,14 @@ export const store = configureStore({
     middleware(getDefaultMiddleware) {
         return getDefaultMiddleware({
             serializableCheck: {
-                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST,
-                    PURGE, REGISTER],
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
             },
         });
-        },
+    },
     // прослойка, для виводу у консоль
     // middleware: getDefaultMiddleware =>
     //     [...getDefaultMiddleware(), logger],
 });
-
 
 export const persistor = persistStore(store);
 
