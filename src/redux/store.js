@@ -11,7 +11,7 @@ persistReducer,
 } from 'redux-persist'
 //import logger from "redux-logger";
 import storage from "redux-persist/lib/storage";
-import {  contactsReducer, filterReducer } from "./contacts-reducer.js";
+import contactsReducer from "./contacts-reducer";
 
 const contactsPersistConfig = {
     key: 'contacts',
@@ -24,11 +24,9 @@ export const persistedReducer = persistReducer(
     contactsReducer,
 );
 
-
 export const store = configureStore({
     reducer: {
         contacts: persistedReducer,
-        filter: filterReducer,
     },
     middleware(getDefaultMiddleware) {
         return getDefaultMiddleware({
@@ -37,7 +35,7 @@ export const store = configureStore({
                     PURGE, REGISTER],
             },
         });
-        }
+        },
     // прослойка, для виводу у консоль
     // middleware: getDefaultMiddleware =>
     //     [...getDefaultMiddleware(), logger],
