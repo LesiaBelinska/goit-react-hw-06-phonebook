@@ -3,6 +3,7 @@ import { combineReducers } from "redux";
 
 import { addContact, deleteContact, changeFilter } from "./contacts-actions.js";
 
+
 const contactsReducer = createReducer([], {
     [addContact]: (state, action) => {
         return [...state, action.payload]
